@@ -95,12 +95,12 @@ public class NGOCoordinatorWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 500));
         setLayout(new java.awt.BorderLayout());
 
-        Header.setBackground(new java.awt.Color(204, 204, 255));
+        Header.setBackground(new java.awt.Color(51, 51, 51));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
         Header.setLayout(new java.awt.GridLayout(1, 0));
 
-        BtnSelfProfile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BtnSelfProfile.setForeground(new java.awt.Color(51, 51, 51));
+        BtnSelfProfile.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BtnSelfProfile.setForeground(new java.awt.Color(255, 255, 255));
         BtnSelfProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BtnSelfProfile.setText("Edit Self Profile");
         BtnSelfProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -111,8 +111,8 @@ public class NGOCoordinatorWorkAreaJPanel extends javax.swing.JPanel {
         });
         Header.add(BtnSelfProfile);
 
-        BtnDonorStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BtnDonorStatus.setForeground(new java.awt.Color(51, 51, 51));
+        BtnDonorStatus.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BtnDonorStatus.setForeground(new java.awt.Color(255, 255, 255));
         BtnDonorStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BtnDonorStatus.setText("Check Donor Status");
         BtnDonorStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -123,10 +123,10 @@ public class NGOCoordinatorWorkAreaJPanel extends javax.swing.JPanel {
         });
         Header.add(BtnDonorStatus);
 
-        BtnDonorRequests.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BtnDonorRequests.setForeground(new java.awt.Color(51, 51, 51));
+        BtnDonorRequests.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BtnDonorRequests.setForeground(new java.awt.Color(255, 255, 255));
         BtnDonorRequests.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnDonorRequests.setText("Donor Requests");
+        BtnDonorRequests.setText("Volunteer Donor Requests");
         BtnDonorRequests.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnDonorRequests.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -137,7 +137,7 @@ public class NGOCoordinatorWorkAreaJPanel extends javax.swing.JPanel {
 
         add(Header, java.awt.BorderLayout.PAGE_START);
 
-        userProcessContainer.setBackground(new java.awt.Color(255, 255, 255));
+        userProcessContainer.setBackground(new java.awt.Color(204, 192, 232));
         userProcessContainer.setLayout(new java.awt.CardLayout());
         add(userProcessContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
