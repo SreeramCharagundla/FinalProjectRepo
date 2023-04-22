@@ -69,12 +69,12 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 246, 217));
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1150, 720));
         setPreferredSize(new java.awt.Dimension(1150, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1150, 86));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -87,8 +87,8 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(imgPie);
 
-        lblPieChart.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        lblPieChart.setForeground(new java.awt.Color(255, 255, 255));
+        lblPieChart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPieChart.setForeground(new java.awt.Color(51, 51, 51));
         lblPieChart.setText("PIE CHART");
         lblPieChart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -109,8 +109,8 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(imgBar);
 
-        lblBarChart.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        lblBarChart.setForeground(new java.awt.Color(255, 255, 255));
+        lblBarChart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblBarChart.setForeground(new java.awt.Color(51, 51, 51));
         lblBarChart.setText("BAR CHART");
         lblBarChart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,8 +131,8 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(imgLine);
 
-        lblLineChart.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        lblLineChart.setForeground(new java.awt.Color(255, 255, 255));
+        lblLineChart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblLineChart.setForeground(new java.awt.Color(51, 51, 51));
         lblLineChart.setText("LINE CHART");
         lblLineChart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,14 +143,14 @@ public class AnalyticsJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1390, 80));
 
-        jPanel4.setBackground(new java.awt.Color(31, 31, 31));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setPreferredSize(new java.awt.Dimension(926, 70));
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Statistics");
+        jLabel10.setText("Analytics");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

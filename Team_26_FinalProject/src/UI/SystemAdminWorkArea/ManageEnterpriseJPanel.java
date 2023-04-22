@@ -13,8 +13,17 @@ import Magic.Design.*;
 import Magic.Design.MyTableFormat;
 import java.awt.Color;
 import Magic.Design.MyJLabel;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -74,12 +83,12 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 221, 228));
         setPreferredSize(new java.awt.Dimension(1150, 720));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblEnterprises.setBackground(new java.awt.Color(0, 0, 0));
-        tblEnterprises.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        tblEnterprises.setForeground(new java.awt.Color(255, 255, 255));
+        tblEnterprises.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tblEnterprises.setForeground(new java.awt.Color(51, 51, 51));
         tblEnterprises.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -109,7 +118,15 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEnterprises);
 
-        jPanel1.setBackground(new java.awt.Color(241, 250, 238));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 424, 1005, 206));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        enterpriseTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseTypeJComboBoxActionPerformed(evt);
+            }
+        });
 
         txtName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtName.setPreferredSize(new java.awt.Dimension(6, 30));
@@ -133,22 +150,22 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         txtContact.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtContact.setPreferredSize(new java.awt.Dimension(6, 30));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Enterprise");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Network");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Zip Code");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Name");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Email");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Contact");
 
         createButton.setText("Create");
@@ -158,7 +175,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Create Enterprise");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -229,41 +246,15 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 33, -1, -1));
+
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(399, 399, 399)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1005, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(451, 451, 451)
-                        .addComponent(btnDelete)))
-                .addContainerGap(108, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnDelete)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 659, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -305,7 +296,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         Network network = (Network) networkJComboBox.getSelectedItem();
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeJComboBox.getSelectedItem();
         String check1 = "";
-
+ String email = txtEmail.getText();
         
         if(networkJComboBox.getSelectedItem().equals(null)){
             
@@ -425,7 +416,42 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, new JLabel("<html><b>New Enterprise created successfully!</b></html>"));
                     
             //JOptionPane.showMessageDialog(null, "New Enterprise Created Successfully!");
-        
+             String fromEmail = "anchitha0913@gmail.com"; // Sender email
+                String password = "eekabpucdsvhobrw"; // Sender email password
+
+// Set email properties
+                Properties props = new Properties();
+                props.put("mail.smtp.host", "smtp.gmail.com");
+                props.put("mail.smtp.port", "465");
+                props.put("mail.smtp.auth", "true");
+                props.put("mail.smtp.socketFactory.port", "465");
+                props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+
+// Authenticate sender
+                Authenticator auth = new Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(fromEmail, password);
+                    }
+                };
+
+// Create email session
+                Session session = Session.getInstance(props, auth);
+
+                try {
+                    // Create email message
+                    Message message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress(fromEmail));
+                    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+                    message.setSubject("Enterprise Creation Notification");
+                    message.setText("Hi, You have successfully created a " + enterpriseTypeJComboBox.getSelectedItem()+ " Enterprise for "+networkJComboBox.getSelectedItem().toString()+" Network.");
+
+                    // Send email message
+                    Transport.send(message);
+
+                    System.out.println("Email sent successfully.");
+                } catch (MessagingException e) {
+                    throw new RuntimeException(e);
+                }
              dB4OUtil.storeSystem(system);
              
             txtName.setText("");
@@ -476,6 +502,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, new JLabel("<html><b>Network Name can not be found!</b></html>") , "Error", JOptionPane.ERROR_MESSAGE);
 
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void enterpriseTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseTypeJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterpriseTypeJComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
