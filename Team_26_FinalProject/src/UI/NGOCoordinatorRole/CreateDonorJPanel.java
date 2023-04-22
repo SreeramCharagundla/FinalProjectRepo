@@ -37,6 +37,18 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,19 +59,19 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DonorListJPanel
      */
-    private  EcoSystem system;
+    private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    
+
     private static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
-    
     private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS_READONLY);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
 
     /**
      * Creates an authorized Credential object.
+     *
      * @param HTTP_TRANSPORT The network HTTP Transport.
      * @return An authorized Credential object.
      * @throws IOException If the credentials.json file cannot be found.
@@ -67,8 +79,8 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
         // Load client secrets.
         //InputStream in = Google.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
-      // InputStream in =  new FileInputStream("C:\\Users\\adwai\\Documents\\NetBeansProjects\\google\\credentials.json");
-        InputStream in =  new FileInputStream("credentials.json");
+        // InputStream in =  new FileInputStream("C:\\Users\\adwai\\Documents\\NetBeansProjects\\google\\credentials.json");
+        InputStream in = new FileInputStream("credentials.json");
         if (in == null) {
             throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
         }
@@ -84,37 +96,35 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
 
     }
-    
+
     public CreateDonorJPanel(EcoSystem system) throws GeneralSecurityException, IOException {
         initComponents();
         this.system = system;
 
-
         tblGoogleSheet.getTableHeader().setDefaultRenderer(new MyTableFormat());
         donorTable.getTableHeader().setDefaultRenderer(new MyTableFormat());
-        populateTable();   
+        populateTable();
         populateGoogleSheetTable();
-         
-    }
-     
-    private void populateTable(){
-        DefaultTableModel dtm = (DefaultTableModel) donorTable.getModel();
-        
-        dtm.setRowCount(0);
-        
-         for(Donor donor: system.getDonorDirectory().getDonorList()){            
-            Object row[] = new Object[2];
-            row[0]= donor;
-            row[1]=donor.getName();
-           // row[2]=donor.getContact();
-              
-            dtm.addRow(row);
-        }        
+
     }
 
-    
-    private void populateGoogleSheetTable() throws GeneralSecurityException, IOException{
-            final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+    private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) donorTable.getModel();
+
+        dtm.setRowCount(0);
+
+        for (Donor donor : system.getDonorDirectory().getDonorList()) {
+            Object row[] = new Object[2];
+            row[0] = donor;
+            row[1] = donor.getName();
+            // row[2]=donor.getContact();
+
+            dtm.addRow(row);
+        }
+    }
+
+    private void populateGoogleSheetTable() throws GeneralSecurityException, IOException {
+        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         final String spreadsheetId = "1YulpIxHOwFfDMM57n7hbxZueFSsw-q414bD5tzNMUv0";
         final String range = "Form Responses 2!A2:S";
         //final String range = "Form Responses 1!A2:E";
@@ -128,26 +138,27 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         if (values == null || values.isEmpty()) {
             System.out.println("No data found.");
         } else {
-            
+
             DefaultTableModel dtm = (DefaultTableModel) tblGoogleSheet.getModel();
-        
+
             dtm.setRowCount(0);
-            
+
             for (List row : values) {
-              
-              System.out.println(row.get(1));
-              System.out.println(row.get(3));
-              Object row1[] = new Object[4];
-            
-            row1[1]=row.get(1);
-            row1[2]=row.get(2);
-            row1[0]= row.get(3);
-            row1[3]=row.get(7);
-            dtm.addRow(row1);              
+
+                System.out.println(row.get(1));
+                System.out.println(row.get(3));
+                Object row1[] = new Object[4];
+
+                row1[1] = row.get(1);
+                row1[2] = row.get(2);
+                row1[0] = row.get(3);
+                row1[3] = row.get(7);
+                dtm.addRow(row1);
             }
         }
-    
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -175,7 +186,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         uidTextField = new javax.swing.JTextField();
         digTypeTextField = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 221, 228));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblGoogleSheet.setBackground(new java.awt.Color(0, 0, 0));
@@ -209,7 +220,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 1200, 210));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Donor Requests");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 760, -1));
@@ -231,7 +242,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         add(contactTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 212, -1));
 
         buttonCreate.setBackground(new java.awt.Color(31, 31, 31));
-        buttonCreate.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        buttonCreate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buttonCreate.setForeground(new java.awt.Color(255, 255, 255));
         buttonCreate.setText("Create Donor");
         buttonCreate.setBorder(new javax.swing.border.MatteBorder(null));
@@ -243,7 +254,7 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
         });
         add(buttonCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 550, 150, 40));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Create Donor Profile");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, -1, -1));
 
@@ -272,11 +283,11 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, 1180, 220));
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setPreferredSize(new java.awt.Dimension(926, 70));
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(51, 51, 51));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("Create Donor Profile");
 
@@ -318,18 +329,17 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
     private void buttonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateActionPerformed
         // TODO add your handling code here:
-         
-        Donor donor = new Donor();  
+
+        Donor donor = new Donor();
         donor.setName(nameTextField.getText());
         donor.setDonorID(uidTextField.getText());
-        
-        System.out.println(contactTextField.getText());  
-        donor.setContact((int) Double.parseDouble(contactTextField.getText())); 
+
+        System.out.println(contactTextField.getText());
+        donor.setContact((int) Double.parseDouble(contactTextField.getText()));
         try {
             donor.getDig().updateDIGlist(digTypeTextField.getText());
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><b>Donor's DIAG Type can only be one of these DIAG_A,DIAG_B,DIAG_C,DIAG_DR,DIAG_DBQ1</b></html>"));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, new JLabel("<html><b>Donor's DIAG Type can only be one of these DIAG_A,DIAG_B,DIAG_C,DIAG_DR,DIAG_DBQ1</b></html>"));
             return;
         }
         donor.setStatus("Government Approved");
@@ -337,34 +347,153 @@ public class CreateDonorJPanel extends javax.swing.JPanel {
 
         dB4OUtil.storeSystem(system);
         populateTable();
-         JOptionPane.showMessageDialog(null, new JLabel(  "<html><b>A new Donor added! </b></html>"));
-           
+        JOptionPane.showMessageDialog(null, new JLabel("<html><b>A new Donor added! </b></html>"));
+
         //JOptionPane.showMessageDialog(null,"new Donor added!");
         nameTextField.setText("");
         contactTextField.setText("");
         uidTextField.setText("");
         digTypeTextField.setText("");
-         buttonCreate.setEnabled(false);
-        
+        buttonCreate.setEnabled(false);
 
+//        String message = "Thank you for choosing our hospital, and we wish you all the best in your continued journey to good health.";
+//        String phoneNumber = contactTextField.getText();
+//        System.out.println(message);
+//        System.out.println(phoneNumber);
+//
+//        // Set up the HTTP request
+//        OkHttpClient client = new OkHttpClient().newBuilder().build();
+//        MediaType mediaType = MediaType.parse("application/json");
+//        String json = "{\n"
+//                + "  \"messages\": [\n"
+//                + "    {\n"
+//                + "        \"channel\": \"sms\",\n"
+//                + "        \"recipients\": [\"" + phoneNumber + "\"],\n"
+//                + "        \"content\": \"" + message + "\",\n"
+//                + "        \"msg_type\": \"text\",\n"
+//                + "        \"data_coding\": \"text\"\n"
+//                + "    }\n"
+//                + "  ],\n"
+//                + "  \"message_globals\": {\n"
+//                + "    \"originator\": \"SignOTP\",\n"
+//                + "    \"report_url\": \"https://the_url_to_recieve_delivery_report.com\"\n"
+//                + "  }\n"
+//                + "}";
+//        System.out.println(json);
+//        RequestBody body = RequestBody.create(json, mediaType);
+//        Request request = new Request.Builder()
+//                .url("https://api.d7networks.com/messages/v1/send")
+//                .method("POST", body)
+//                .addHeader("Content-Type", "application/json")
+//                .addHeader("Accept", "application/json")
+//                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoLWJhY2tlbmQ6YXBwIiwic3ViIjoiZGZiN2UyM2QtOTBhOC00MWMwLWIxODAtMmJlNzU1NjBmZWVjIn0.40F_e1OscqERvESmJcMZ_5Z_bIt7zJcGLOxptpTC2Dg ")
+//                .build();
+//
+//        // Send the HTTP request and handle the response
+//        try {
+//            Response response = client.newCall(request).execute();
+//            if (response.isSuccessful()) {
+//                System.out.println("SMS sent successfully.");
+//            } else {
+//                System.out.println("Failed to send SMS: " + response.body().string());
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+//String message = "Thank you for choosing our hospital, and we wish you all the best in your continued journey to good health.";
+//        String phoneNumber = contactTextField.getText();
+//        System.out.println(message);
+//        System.out.println(phoneNumber);
+//
+//        // Set up the HTTP request
+//        OkHttpClient client = new OkHttpClient().newBuilder().build();
+//        MediaType mediaType = MediaType.parse("application/json");
+//        String json = "{\n"
+//                + "  \"messages\": [\n"
+//                + "    {\n"
+//                + "        \"channel\": \"sms\",\n"
+//                + "        \"recipients\": [\"" + phoneNumber + "\"],\n"
+//                + "        \"content\": \"" + message + "\",\n"
+//                + "        \"msg_type\": \"text\",\n"
+//                + "        \"data_coding\": \"text\"\n"
+//                + "    }\n"
+//                + "  ],\n"
+//                + "  \"message_globals\": {\n"
+//                + "    \"originator\": \"SignOTP\",\n"
+//                + "    \"report_url\": \"https://the_url_to_recieve_delivery_report.com\"\n"
+//                + "  }\n"
+//                + "}";
+//        System.out.println(json);
+//        RequestBody body = RequestBody.create( mediaType,json);
+//        Request request = new Request.Builder()
+//                .url("https://api.d7networks.com/messages/v1/send")
+//                .method("POST", body)
+//                .addHeader("Content-Type", "application/json")
+//                .addHeader("Accept", "application/json")
+//                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoLWJhY2tlbmQ6YXBwIiwic3ViIjoiZGZiN2UyM2QtOTBhOC00MWMwLWIxODAtMmJlNzU1NjBmZWVjIn0.40F_e1OscqERvESmJcMZ_5Z_bIt7zJcGLOxptpTC2Dg ")
+//                .build();
+//
+//        // Send the HTTP request and handle the response
+//        try {
+//            Response response = client.newCall(request).execute();
+//            if (response.isSuccessful()) {
+//                System.out.println("SMS sent successfully.");
+//            } else {
+//                System.out.println("Failed to send SMS: " + response.body().string());
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+String message = "Thank you for choosing our hospital, and we wish you all the best in your continued journey to good health.";
+        String phoneNumber = contactTextField.getText();
+        System.out.println(message);
+        System.out.println(phoneNumber);
+
+        Unirest.setTimeouts(0, 0);
+        try {
+            HttpResponse<String> response = Unirest.post("https://api.d7networks.com/messages/v1/send")
+                    .header("Content-Type", "application/json")
+                    .header("Accept", "application/json")
+                    .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoLWJhY2tlbmQ6YXBwIiwic3ViIjoiNGZlYTk3MDQtOWI4ZS00NDE4LThjNGYtMDAzNDY1YTA3ZmIyIn0.V1OgEQqc_LLSZI0qqlX5kTadgodzkuV4y5TYXDJRJMc")
+                    .body("{\n"
+                            + "  \"messages\": [\n"
+                            + "    {\n"
+                            + "        \"channel\": \"sms\",\n"
+                            + "        \"recipients\": [\"" + phoneNumber + "\"],\n"
+                            + "        \"content\": \"" + message + "\",\n"
+                            + "        \"msg_type\": \"text\",\n"
+                            + "        \"data_coding\": \"text\"\n"
+                            + "    }\n"
+                            + "  ],\n"
+                            + "  \"message_globals\": {\n"
+                            + "    \"originator\": \"SignOTP\",\n"
+                            + "    \"report_url\": \"https://the_url_to_recieve_delivery_report.com\"\n"
+                            + "  }\n"
+                            + "}")
+                    .asString();
+            System.out.println("SMS sent successfully.");
+        } catch (UnirestException ex) {
+            Logger.getLogger(CreateDonorJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buttonCreateActionPerformed
 
     private void tblGoogleSheetMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGoogleSheetMousePressed
         // TODO add your handling code here:
-                // TODO add your handling code here:
-        
-         int selectedRow = tblGoogleSheet.getSelectedRow();
-        if(selectedRow < 0){
+        // TODO add your handling code here:
 
-        }
-        else{
-                    
-        nameTextField.setText( String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 1)));
-        contactTextField.setText( String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 2)));
-        uidTextField.setText( String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 0)));
-        digTypeTextField.setText( String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 3)));
-        
-        buttonCreate.setEnabled(true);
+        int selectedRow = tblGoogleSheet.getSelectedRow();
+        if (selectedRow < 0) {
+
+        } else {
+
+            nameTextField.setText(String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 1)));
+            contactTextField.setText(String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 2)));
+            uidTextField.setText(String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 0)));
+            digTypeTextField.setText(String.valueOf(tblGoogleSheet.getValueAt(selectedRow, 3)));
+
+            buttonCreate.setEnabled(true);
         }
     }//GEN-LAST:event_tblGoogleSheetMousePressed
 
