@@ -4,7 +4,7 @@
  */
 package Business.People;
 
-import Business.DIG.PersonDIGType;
+import Business.DIG.PersonBloodType;
 import java.util.Date;
 
 /**
@@ -18,7 +18,7 @@ public class Donor {
     private Date dob;
     private int age;
     private String gender;
-    private PersonDIGType dig;
+    private PersonBloodType dig;
     private String streetAddress;
     private String city;
     private String state;
@@ -43,7 +43,7 @@ public class Donor {
     }
     
     public Donor(){
-        this.dig = new PersonDIGType();
+        this.dig = new PersonBloodType();
     }
     
     
@@ -69,14 +69,14 @@ public class Donor {
     public void setAge(int age) {        this.age = age;    }
     public String getGender() {        return gender;    }
     public void setGender(String gender) {        this.gender = gender;    }
-    public PersonDIGType getDIG() {        
+    public PersonBloodType getDIG() {        
         if(this.dig == null){
-            this.dig = new PersonDIGType();
-            dig.updateDIGlist("DIAG_A,DIAG_B");
+            this.dig = new PersonBloodType();
+            dig.updateDIGlist("A,B");
         }
         return dig;    
     }
-    public void setDIG(PersonDIGType dig) {        this.dig = dig;    }
+    public void setDIG(PersonBloodType dig) {        this.dig = dig;    }
     public String getStreetAddress() {        return streetAddress;    }
     public void setStreetAddress(String streetAddress) {        this.streetAddress = streetAddress;    }
     public String getCity() {        return city;    }
@@ -98,11 +98,11 @@ public class Donor {
     public boolean isBreathingProb() {return breathingProb;}
     public void setBreathingProb(boolean breathingProb) {        this.breathingProb = breathingProb;    }
 
-    public PersonDIGType getDig() {
+    public PersonBloodType getDig() {
         return dig;
     }
 
-    public void setDig(PersonDIGType dig) {
+    public void setDig(PersonBloodType dig) {
         this.dig = dig;
     }
           

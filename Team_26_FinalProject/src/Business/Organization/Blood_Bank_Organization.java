@@ -6,7 +6,7 @@
 package Business.Organization;
 
 import Business.DIG.DiagnosisType;
-import Business.DIG.PersonDIGType;
+import Business.DIG.PersonBloodType;
 import Business.Role.DoctorRole;
 import Business.Role.Blood_Bank_CoordinatorRole;
 import Business.Role.Role;
@@ -21,17 +21,20 @@ public class Blood_Bank_Organization extends Organization{
         DiagnosisType inventory;
     
     public Blood_Bank_Organization() {
-        super(Organization.LiverBankType.LiverBank.getValue());
+        super(Organization.BloodBankType.BloodBank.getValue());
         inventory = new DiagnosisType();
-        PersonDIGType h = new PersonDIGType();
-        h.updateDIGlist("DIAG_A,DIAG_B");
+        PersonBloodType h = new PersonBloodType();
+        h.updateDIGlist("B");
         inventory.DIGCountAdd(h,6);
-        h = new PersonDIGType();
-        h.updateDIGlist("DIAG_A");
+        h = new PersonBloodType();
+        h.updateDIGlist("A");
         inventory.DIGCountAdd(h,5);
-        h = new PersonDIGType();
-        h.updateDIGlist("DIAG_A,DIAG_B,DIAG_C");
+        h = new PersonBloodType();
+        h.updateDIGlist("AB");
         inventory.DIGCountAdd(h,7);
+         h = new PersonBloodType();
+        h.updateDIGlist("O");
+        inventory.DIGCountAdd(h,8);
     }
 
     public DiagnosisType getInventory() {

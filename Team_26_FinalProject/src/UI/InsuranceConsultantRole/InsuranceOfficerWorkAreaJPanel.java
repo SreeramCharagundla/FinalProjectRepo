@@ -92,12 +92,12 @@ public class InsuranceOfficerWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 500));
         setLayout(new java.awt.BorderLayout());
 
-        Header.setBackground(new java.awt.Color(0, 0, 0));
+        Header.setBackground(new java.awt.Color(204, 204, 255));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
         Header.setLayout(new java.awt.GridLayout(1, 0));
 
-        BtnProfile.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnProfile.setForeground(new java.awt.Color(255, 255, 255));
+        BtnProfile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnProfile.setForeground(new java.awt.Color(51, 51, 51));
         BtnProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BtnProfile.setText("Profile");
         BtnProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -108,10 +108,10 @@ public class InsuranceOfficerWorkAreaJPanel extends javax.swing.JPanel {
         });
         Header.add(BtnProfile);
 
-        BtnManageRequests.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnManageRequests.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManageRequests.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnManageRequests.setForeground(new java.awt.Color(51, 51, 51));
         BtnManageRequests.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnManageRequests.setText("Manage Requests");
+        BtnManageRequests.setText("Insurance Approval Request");
         BtnManageRequests.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnManageRequests.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -120,10 +120,10 @@ public class InsuranceOfficerWorkAreaJPanel extends javax.swing.JPanel {
         });
         Header.add(BtnManageRequests);
 
-        BtnConsent.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnConsent.setForeground(new java.awt.Color(255, 255, 255));
+        BtnConsent.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnConsent.setForeground(new java.awt.Color(51, 51, 51));
         BtnConsent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnConsent.setText("Check Acceptance Status");
+        BtnConsent.setText("Check  Status");
         BtnConsent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnConsent.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -134,7 +134,7 @@ public class InsuranceOfficerWorkAreaJPanel extends javax.swing.JPanel {
 
         add(Header, java.awt.BorderLayout.PAGE_START);
 
-        userProcessContainer.setBackground(new java.awt.Color(204, 255, 255));
+        userProcessContainer.setBackground(new java.awt.Color(255, 255, 255));
         userProcessContainer.setLayout(new java.awt.CardLayout());
         add(userProcessContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

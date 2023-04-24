@@ -5,8 +5,9 @@
  */
 package Business.Organization;
 
-import Business.DIG.PersonDIGType;
+import Business.DIG.PersonBloodType;
 import Business.DB4OUtil.DB4OUtil;
+import Business.DIG.PersonBloodType;
 import Business.EcoSystem;
 import Business.Employee.EmployeeDirectory;
 import Business.Role.Role;
@@ -28,7 +29,7 @@ public abstract class Organization {
     private UserAccountDirectory userAccountDirectory;
     
     private static int counter=0;
-    private ArrayList<PersonDIGType> allDIGs;
+    private ArrayList<PersonBloodType> allDIGs;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
     
@@ -48,12 +49,12 @@ public abstract class Organization {
         }
     }
     
-     public enum LiverBankType {
+     public enum BloodBankType {
          
-        LiverBank("Liver Bank Coordinator Organization");
+        BloodBank("Blood Bank Coordinator Organization");
         private String value;
 
-        private LiverBankType(String value) {
+        private BloodBankType(String value) {
             this.value = value;
         }
 
@@ -62,12 +63,12 @@ public abstract class Organization {
         }
      }
     
-    public enum CirrhosisCentreType {
+    public enum ThalassemiaCentreType {
          
-        CirrhosisCentre("Cirrhosis centre coordinaor Organization");
+        ThalassemiaCentre("Thalassemia centre coordinaor Organization");
         private String value;
 
-        private CirrhosisCentreType(String value) {
+        private ThalassemiaCentreType(String value) {
             this.value = value;
         }
 
@@ -76,12 +77,12 @@ public abstract class Organization {
         }
      }
     
-    public enum GovernmentType {
+    public enum NGOType {
          
-        Government("Government Coordinator Organization");
+        NGO("NGO Coordinator Organization");
         private String value;
 
-        private GovernmentType(String value) {
+        private NGOType(String value) {
             this.value = value;
         }
 
@@ -91,12 +92,12 @@ public abstract class Organization {
      }
     
     
-     public enum LegalType {
+     public enum InsuranceType {
          
-        LegalOfficer("Legal Officer Organization");
+        InsuranceOfficer("Insurance Officer Organization");
         private String value;
 
-        private LegalType(String value) {
+        private InsuranceType(String value) {
             this.value = value;
         }
 
@@ -111,7 +112,7 @@ public abstract class Organization {
         System.out.println("initialise work queue");
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
-        allDIGs = new ArrayList<PersonDIGType>();
+        allDIGs = new ArrayList<PersonBloodType>();
         organizationID = counter;
         ++counter;
     }
@@ -146,15 +147,15 @@ public abstract class Organization {
         this.workQueue = workQueue;
     }
 
-    public ArrayList<PersonDIGType> getAllDIGs() {
+    public ArrayList<PersonBloodType> getAllDIGs() {
         return allDIGs;
     }
 
-    public void setAllDIGsList(ArrayList<PersonDIGType> allDIGs) {
+    public void setAllDIGsList(ArrayList<PersonBloodType> allDIGs) {
         this.allDIGs = allDIGs;
     }
     
-    public void addDIG(PersonDIGType dig) {
+    public void addDIG(PersonBloodType dig) {
         this.allDIGs.add(dig);
     }
 

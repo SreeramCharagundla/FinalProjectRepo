@@ -102,12 +102,12 @@ public class MedicalTechnicianWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1150, 720));
         setLayout(new java.awt.BorderLayout());
 
-        Header.setBackground(new java.awt.Color(15, 29, 52));
+        Header.setBackground(new java.awt.Color(204, 204, 255));
         Header.setPreferredSize(new java.awt.Dimension(800, 70));
         Header.setLayout(new java.awt.GridLayout(1, 0));
 
-        BtnProfile.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnProfile.setForeground(new java.awt.Color(255, 255, 255));
+        BtnProfile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnProfile.setForeground(new java.awt.Color(51, 51, 51));
         BtnProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BtnProfile.setText("Profile");
         BtnProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -118,10 +118,10 @@ public class MedicalTechnicianWorkAreaJPanel extends javax.swing.JPanel {
         });
         Header.add(BtnProfile);
 
-        BtnManageRequest.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnManageRequest.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManageRequest.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnManageRequest.setForeground(new java.awt.Color(51, 51, 51));
         BtnManageRequest.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BtnManageRequest.setText("Manage Request");
+        BtnManageRequest.setText("Donor Request");
         BtnManageRequest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnManageRequest.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,7 +132,7 @@ public class MedicalTechnicianWorkAreaJPanel extends javax.swing.JPanel {
 
         add(Header, java.awt.BorderLayout.PAGE_START);
 
-        userProcessContainer.setBackground(new java.awt.Color(204, 255, 255));
+        userProcessContainer.setBackground(new java.awt.Color(255, 255, 255));
         userProcessContainer.setLayout(new java.awt.CardLayout());
         add(userProcessContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

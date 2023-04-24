@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class InsuranceOfficerOrganization extends Organization {
         public InsuranceOfficerOrganization() {
-        super(Organization.LegalType.LegalOfficer.getValue());
+        super(Organization.InsuranceType.InsuranceOfficer.getValue());
     }
     
     @Override

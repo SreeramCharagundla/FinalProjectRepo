@@ -4,7 +4,7 @@
  */
 package Business.People;
 
-import Business.DIG.PersonDIGType;
+import Business.DIG.PersonBloodType;
 import java.util.Date;
 
 /**
@@ -17,7 +17,7 @@ public class Patient {
     private Date dob;
     private int age;
     private String gender;
-    private PersonDIGType dig;
+    private PersonBloodType dig;
     private String streetAddress;
     private String city;
     private String state;
@@ -33,7 +33,7 @@ public class Patient {
     private byte[] dP;
 
     public Patient() {
-        this.dig = new PersonDIGType();
+        this.dig = new PersonBloodType();
     }
     
     public byte[] getdP() {
@@ -65,8 +65,8 @@ public class Patient {
     public void setAge(int age) {        this.age = age;    }
     public String getGender() {        return gender;    }
     public void setGender(String gender) {        this.gender = gender;    }
-    public PersonDIGType getDIG() {        return dig;    }
-    public void setDIG(PersonDIGType dig) {        this.dig = dig;    }
+    public PersonBloodType getDIG() {        return dig;    }
+    public void setDIG(PersonBloodType dig) {        this.dig = dig;    }
     public String getStreetAddress() {        return streetAddress;    }
     public void setStreetAddress(String streetAddress) {        this.streetAddress = streetAddress;    }
     public String getCity() {        return city;    }

@@ -130,15 +130,15 @@ public class ManageDoctorRequestJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 221, 228));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("List of Patients in need of Disese Treatment");
+        jLabel1.setText("List of Patients in need of Blood Transfusion");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 560, -1));
 
-        btnAssignToMe.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        btnAssignToMe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAssignToMe.setText("Assign To Me");
         btnAssignToMe.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAssignToMe.addActionListener(new java.awt.event.ActionListener() {
@@ -148,19 +148,18 @@ public class ManageDoctorRequestJPanel extends javax.swing.JPanel {
         });
         add(btnAssignToMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 140, 30));
 
-        btnTreatmentDone.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        btnTreatmentDone.setText("Treatment Done");
+        btnTreatmentDone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnTreatmentDone.setText("Blood Transfusion Done");
         btnTreatmentDone.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnTreatmentDone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTreatmentDoneActionPerformed(evt);
             }
         });
-        add(btnTreatmentDone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, 180, -1));
+        add(btnTreatmentDone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, 180, 30));
 
-        tblDoctorOrganisation.setBackground(new java.awt.Color(0, 0, 0));
-        tblDoctorOrganisation.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        tblDoctorOrganisation.setForeground(new java.awt.Color(255, 255, 255));
+        tblDoctorOrganisation.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tblDoctorOrganisation.setForeground(new java.awt.Color(51, 51, 51));
         tblDoctorOrganisation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -183,9 +182,8 @@ public class ManageDoctorRequestJPanel extends javax.swing.JPanel {
 
         add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 910, 140));
 
-        tblDoctor.setBackground(new java.awt.Color(0, 0, 0));
-        tblDoctor.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        tblDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        tblDoctor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tblDoctor.setForeground(new java.awt.Color(51, 51, 51));
         tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -208,14 +206,15 @@ public class ManageDoctorRequestJPanel extends javax.swing.JPanel {
 
         add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 910, 180));
 
-        jPanel3.setBackground(new java.awt.Color(31, 31, 31));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setPreferredSize(new java.awt.Dimension(926, 70));
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(51, 51, 51));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Manage Request");
+        jLabel25.setText("Blood Transfusion Requests");
         jPanel3.add(jLabel25);
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, -1));
@@ -268,8 +267,8 @@ public class ManageDoctorRequestJPanel extends javax.swing.JPanel {
         
         else{
         WorkRequest request = (WorkRequest)tblDoctor.getValueAt(selectedRow, 0);
-        request.setStatus("Treatment Done");
-        request.getPatient().setState("Treatment Done");
+        request.setStatus("Transfusion Done");
+        request.getPatient().setState("Transfusion Done");
         
         dB4OUtil.storeSystem(system);
         populateOrganisationpatientTable();

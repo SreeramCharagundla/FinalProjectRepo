@@ -42,9 +42,9 @@ public class OrganizationDirectory {
         return organization;
     }
     
-    public Organization createLegalOrganization(Organization.LegalType legalType, String realName){
+    public Organization createInsuranceOrganization(Organization.InsuranceType legalType, String realName){
         Organization organization = null;
-        if (legalType.getValue().equals(Organization.LegalType.LegalOfficer.getValue())){
+        if (legalType.getValue().equals(Organization.InsuranceType.InsuranceOfficer.getValue())){
             organization = new InsuranceOfficerOrganization();
             organization.setRealName(realName);
             organizationList.add(organization);
@@ -52,9 +52,9 @@ public class OrganizationDirectory {
         return organization;
     }
     
-     public Organization createLiverOrganization(Organization.LiverBankType liverBankType, String realName){
+     public Organization createBloodOrganization(Organization.BloodBankType liverBankType, String realName){
         Organization organization = null;
-        if (liverBankType.getValue().equals(Organization.LiverBankType.LiverBank.getValue())){
+        if (liverBankType.getValue().equals(Organization.BloodBankType.BloodBank.getValue())){
             organization = new Blood_Bank_Organization();
             organization.setRealName(realName);
             organizationList.add(organization);
@@ -62,9 +62,9 @@ public class OrganizationDirectory {
         return organization;
     }
      
-     public Organization createCirrhosisCentreOrganization(Organization.CirrhosisCentreType cirrhosisType, String realName){
+     public Organization createThalassemiaCentreOrganization(Organization.ThalassemiaCentreType thalassemiaType, String realName){
         Organization organization = null;
-        if (cirrhosisType.getValue().equals(Organization.CirrhosisCentreType.CirrhosisCentre.getValue())){
+        if (thalassemiaType.getValue().equals(Organization.ThalassemiaCentreType.ThalassemiaCentre.getValue())){
             organization = new Thalassemia_Centre_Organization();
             organization.setRealName(realName);
             organizationList.add(organization);
@@ -72,9 +72,9 @@ public class OrganizationDirectory {
         return organization;
     }
      
-      public Organization createGovernmentOrganization(Organization.GovernmentType govtType, String realName){
+      public Organization createNGOOrganization(Organization.NGOType ngoType, String realName){
         Organization organization = null;
-        if (govtType.getValue().equals(Organization.GovernmentType.Government.getValue())){
+        if (ngoType.getValue().equals(Organization.NGOType.NGO.getValue())){
             organization = new NGOOrganization();
             organization.setRealName(realName);
             organizationList.add(organization);

@@ -78,7 +78,7 @@ public class ManageDoctorProfile extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         comboGender = new javax.swing.JComboBox();
 
-        setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 221, 228));
         setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class Thalassemia_Centre_Organization extends Organization {
      public Thalassemia_Centre_Organization() {
-        super(Organization.CirrhosisCentreType.CirrhosisCentre.getValue());
+        super(Organization.ThalassemiaCentreType.ThalassemiaCentre.getValue());
     }
     
     @Override

@@ -20,7 +20,7 @@ public class DiagnosisType {
         DIGComboCounts = new HashMap<>();
     }
     
-    public void DIGCountAdd(PersonDIGType dig) {
+    public void DIGCountAdd(PersonBloodType dig) {
         ArrayList<String> digValues = dig.getDigValuesList();
         Collections.sort(digValues);
         String digCombo = String.join(", ", digValues);
@@ -28,7 +28,7 @@ public class DiagnosisType {
         this.DIGComboCounts.put(digCombo, this.DIGComboCounts.get(digCombo) + 1);
     }
     
-    public void DIGCountAdd(PersonDIGType dig, Integer i) {
+    public void DIGCountAdd(PersonBloodType dig, Integer i) {
         ArrayList<String> digValues = dig.getDigValuesList();
         Collections.sort(digValues);
         String digCombo = String.join(", ", digValues);
@@ -36,7 +36,7 @@ public class DiagnosisType {
         this.DIGComboCounts.put(digCombo, this.DIGComboCounts.get(digCombo) + i);
     }
     
-    public void DIGCountSubstract(PersonDIGType dig) {
+    public void DIGCountSubstract(PersonBloodType dig) {
         ArrayList<String> digValues = dig.getDigValuesList();
         Collections.sort(digValues);
         String digCombo = String.join(", ", digValues);

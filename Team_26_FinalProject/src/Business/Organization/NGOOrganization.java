@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class NGOOrganization extends Organization{
 
     public NGOOrganization() {
-        super(Organization.GovernmentType.Government.getValue());
+        super(Organization.NGOType.NGO.getValue());
     }
     
     @Override

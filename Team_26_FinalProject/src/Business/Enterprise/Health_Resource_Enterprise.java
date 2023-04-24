@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Health_Resource_Enterprise extends Enterprise {
     
     public Health_Resource_Enterprise(String name){
-        super(name,EnterpriseType.HRSA);
+        super(name,EnterpriseType.NGO);
     }
     @Override
     public ArrayList<Role> getSupportedRole() {

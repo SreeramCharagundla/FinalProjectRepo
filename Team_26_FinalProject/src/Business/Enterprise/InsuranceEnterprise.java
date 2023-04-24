@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class InsuranceEnterprise extends Enterprise {
     
     public InsuranceEnterprise(String name){
-        super(name,EnterpriseType.Legal);
+        super(name,EnterpriseType.Insurance);
     }
     @Override
     public ArrayList<Role> getSupportedRole() {

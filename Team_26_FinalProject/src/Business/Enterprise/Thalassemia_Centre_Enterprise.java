@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Thalassemia_Centre_Enterprise extends Enterprise {
     
     public Thalassemia_Centre_Enterprise(String name){
-        super(name,EnterpriseType.CirrhosisCentre);
+        super(name,EnterpriseType.ThalassemiaCentre);
     }
     @Override
     public ArrayList<Role> getSupportedRole() {

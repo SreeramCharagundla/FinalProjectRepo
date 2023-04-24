@@ -37,7 +37,7 @@ public abstract class WorkRequest {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private int requestNumberInt;
 
-    private static int count = 1;
+    private static int count = 0;
     private static int ct;
     
     

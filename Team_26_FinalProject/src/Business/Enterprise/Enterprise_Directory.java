@@ -35,19 +35,19 @@ public class Enterprise_Directory {
             enterprise=new HospitalEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.Legal){
+        else if(type==Enterprise.EnterpriseType.Insurance){
             enterprise=new InsuranceEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.HRSA){
+        else if(type==Enterprise.EnterpriseType.NGO){
             enterprise=new Health_Resource_Enterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.LiverBank){
+        else if(type==Enterprise.EnterpriseType.BloodBank){
             enterprise=new Blood_Bank_Enterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.CirrhosisCentre){
+        else if(type==Enterprise.EnterpriseType.ThalassemiaCentre){
             enterprise=new Thalassemia_Centre_Enterprise(name);
             enterpriseList.add(enterprise);
         }

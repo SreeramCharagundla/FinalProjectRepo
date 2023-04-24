@@ -4,7 +4,7 @@
  */
 package Business.People;
 
-import Business.DIG.PersonDIGType;
+import Business.DIG.PersonBloodType;
 import java.util.Date;
 
 /**
@@ -18,7 +18,7 @@ public class DonorRequest {
     private Date dob;
     private int age;
     private String gender;
-    private PersonDIGType dig;
+    private PersonBloodType blood;
     private String streetAddress;
     private String city;
     private String state;
@@ -26,7 +26,7 @@ public class DonorRequest {
     private long contact;
     private String emailID;
     private String status;
-    private Date  cirrhosisDiagnosedDate;
+    private Date  thalassemiaDiagnosedDate;
     private Date  lastDonationDate;
     private boolean brainInjury;
     private boolean diabitiesBP;
@@ -36,7 +36,7 @@ public class DonorRequest {
     private byte[] dP;
     
     public DonorRequest() {
-        this.dig = new PersonDIGType();
+        this.blood = new PersonBloodType();
     }
 
     public byte[] getdP() {
@@ -70,8 +70,8 @@ public class DonorRequest {
     public void setAge(int age) {        this.age = age;    }
     public String getGender() {        return gender;    }
     public void setGender(String gender) {        this.gender = gender;    }
-    public PersonDIGType getDIG() {        return dig;    }
-    public void setDIG(PersonDIGType dig) {        this.dig = dig;    }
+    public PersonBloodType getDIG() {        return blood;    }
+    public void setDIG(PersonBloodType blood) {        this.blood = blood;    }
     public String getStreetAddress() {        return streetAddress;    }
     public void setStreetAddress(String streetAddress) {        this.streetAddress = streetAddress;    }
     public String getCity() {        return city;    }
@@ -99,19 +99,19 @@ public class DonorRequest {
     }
 
     public void setCirrhosisDiagnosedDate(Date date) {
-        this.cirrhosisDiagnosedDate = date;
+        this.thalassemiaDiagnosedDate = date;
     }
 
     public Date getCirrhosisDiagnosedDate() {
-        return this.cirrhosisDiagnosedDate;
+        return this.thalassemiaDiagnosedDate;
     }
 
-    public PersonDIGType getDig() {
-        return dig;
+    public PersonBloodType getDig() {
+        return blood;
     }
 
-    public void setDig(PersonDIGType dig) {
-        this.dig= dig;
+    public void setDig(PersonBloodType blood) {
+        this.blood= blood;
     }
 
     public boolean isChronicPains() {

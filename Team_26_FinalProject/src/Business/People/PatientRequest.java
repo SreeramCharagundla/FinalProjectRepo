@@ -4,7 +4,7 @@
  */
 package Business.People;
 
-import Business.DIG.PersonDIGType;
+import Business.DIG.PersonBloodType;
 import java.util.Date;
 
 /**
@@ -19,7 +19,7 @@ public class PatientRequest {
     private Date cirrhosisDiagnosedDate;
     private int age;
     private String gender;
-    private PersonDIGType dig;
+    private PersonBloodType dig;
     private String streetAddress;
     private String city;
     private String state;
@@ -32,7 +32,7 @@ public class PatientRequest {
     private byte[] dP;
     
     public PatientRequest() {
-        this.dig = new PersonDIGType();
+        this.dig = new PersonBloodType();
     }
 
     public byte[] getdP() {
@@ -80,11 +80,11 @@ public class PatientRequest {
     public boolean isLabConfirmation() {        return labConfirmation;    }
     public void setLabConfirmation(boolean labConfirmation) {        this.labConfirmation = labConfirmation;    }
 
-    public PersonDIGType getDig() {
+    public PersonBloodType getDig() {
         return dig;
     }
 
-    public void setDig(PersonDIGType dig) {
+    public void setDig(PersonBloodType dig) {
         this.dig = dig;
     }
     

@@ -27,10 +27,10 @@ public abstract class Enterprise extends Organization{
     
     public enum EnterpriseType{
         Hospital("Hospital"),
-        LiverBank("LiverBank"),
-        Legal("Legal"),
-        CirrhosisCentre("CirrhosisCentre"),
-        HRSA("Government");
+        BloodBank("BloodBank"),
+        Insurance("Insurance"),
+        ThalassemiaCentre("ThalassemiaCentre"),
+        NGO("NGO");
         
         
         private String value;
